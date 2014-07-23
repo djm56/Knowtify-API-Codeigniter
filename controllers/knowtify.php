@@ -17,7 +17,7 @@ class Knowtify extends CI_Controller {
     	// Load the libraries
         $this->load->library('CI_Knowtify','Yourname_Knowtify');
         // Create a notification object using 
-        $notificationKnowtify = new Xpanda_Knowtify();
+        $notificationKnowtify = new Yourname_Knowtify();
         $leadclient = $notificationKnowtify->AddKnowtifyData($data = array("data" => array("data" => "Added Data"));
     }
 }
