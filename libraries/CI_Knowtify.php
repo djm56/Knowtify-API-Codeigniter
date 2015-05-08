@@ -86,4 +86,8 @@ class CI_Knowtify {
         
         var_dump($result);
     }
+    
+    protected function _KnowtifyTransaction($data,$api,$url,$type,$crud) {
+        
+    }
 }

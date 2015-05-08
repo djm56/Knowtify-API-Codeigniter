@@ -52,3 +52,7 @@ How to use the add contact function
 $addKnowtify = new Yourname_Knowtify();
 $addclient = $addKnowtify->UpsertKnowtifyContacts($data = array("contacts" => array("name" => "Fred Fox", "email" => "fred@fredfoc.com")));
 ```
+
+## Author:
+
+Donovan Maidens ( [@Anomalous_Bot](http://twitter.com/Anomalous_Bot) / [anomalous.co.za](http://anomalous.co.za) )
