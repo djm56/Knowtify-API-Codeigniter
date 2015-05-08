@@ -61,5 +61,20 @@ class Knowtify extends CI_Controller {
         ));  
     }
     
-    
+    // Transcational emails
+    public function transactemail() {
+        
+        $notificationKnowtify = new Yourname_Knowtify();
+        
+        $addclient = $notificationKnowtify->UpsertKnowtifyContacts($data = array(
+            "event" => "purchase",  //this is the tag for the email in Knowtify
+            "contacts" => array(
+                 "email" => "marty@mcfly.io",   //this is to whom the email will be delivered
+                "PurchasedItem" => "Flux Capacitor 2000", //this is all sample data that will populate the body of the email 
+                "ItemImage" => "/fluxcapacitor2000.jpg",
+                "ItemDescription" => "The most advanced Capacitor yet!",
+                "PurchasePrice" =>"$1,299" 
+            )
+        ));  
+    }
 }

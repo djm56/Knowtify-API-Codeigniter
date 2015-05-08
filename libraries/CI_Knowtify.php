@@ -54,6 +54,14 @@ class CI_Knowtify {
     protected $_delete = null;
     
     /**
+     * Store in Knowtify Database
+     * @var boolean
+     */
+    
+    protected $_store = false;
+
+
+    /**
      * This protected function communicates Knowtify
      * 
      * @access	protected
@@ -65,7 +73,7 @@ class CI_Knowtify {
      * @return	void|boolean
      */
     
-    protected function _KnowtifyData($data,$api,$url,$type,$crud) {
+    protected function _KnowtifyData($data,$api,$url,$type,$crud,$store) {
         $location = $url . $type . $crud;
         $header = array(
             'Content-Type: application/json', 
@@ -84,10 +92,24 @@ class CI_Knowtify {
 
         $result = json_decode($output);
         
+        
+        if ($store == true) {
+            if ($this->db->table_exists('table_name'))
+                {
+                   $data = array(
+                    'timestamp' => date('Y-m-d G:i:s') ,
+                    'emaildata' => $result ,
+                    'ipaddress' => '0.0.0.0',
+                    'email_type' => $type,
+                    'action' => $crud,
+                    'userid' => 'id'
+                    );
+
+                    $this->db->insert('knowtify_logs', $data);
+                }     
+        };
+            
         var_dump($result);
     }
     
-    protected function _KnowtifyTransaction($data,$api,$url,$type,$crud) {
-        
-    }
 }

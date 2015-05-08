@@ -17,7 +17,8 @@ class Yourname_Knowtify extends CI_Knowtify {
         $this->_add = '/add';    
         $this->_edit = '/edit';   
         $this->_upsert = '/upsert';   
-        $this->_delete = '/delete';       
+        $this->_delete = '/delete';
+        $this->_store = true;
     } 
     
     /**
@@ -28,7 +29,7 @@ class Yourname_Knowtify extends CI_Knowtify {
      * @return boolean 
      */
     public function AddKnowtifyData($data) {      
-        return parent::_KnowtifyData($data, $this->_api, $this->_URL, $this->_data, $this->_edit);
+        return parent::_KnowtifyData($data, $this->_api, $this->_URL, $this->_data, $this->_edit, $this->_store);
     }
     
     /**
@@ -39,7 +40,7 @@ class Yourname_Knowtify extends CI_Knowtify {
      * @return boolean 
      */
     public function AddKnowtifyContacts($data) {      
-        return parent::_KnowtifyData($data, $this->_api, $this->_URL, $this->_contacts, $this->_add);
+        return parent::_KnowtifyData($data, $this->_api, $this->_URL, $this->_contacts, $this->_add, $this->_store);
     }
     
     /**
@@ -50,7 +51,7 @@ class Yourname_Knowtify extends CI_Knowtify {
      * @return boolean 
      */
     public function EditKnowtifyContacts($data) {      
-        return parent::_KnowtifyData($data, $this->_api, $this->_URL, $this->_contacts, $this->_edit);
+        return parent::_KnowtifyData($data, $this->_api, $this->_URL, $this->_contacts, $this->_edit, $this->_store);
     }
     
     /**
@@ -61,7 +62,7 @@ class Yourname_Knowtify extends CI_Knowtify {
      * @return boolean 
      */
     public function UpsertKnowtifyContacts($data) {      
-        return parent::_KnowtifyData($data, $this->_api, $this->_URL, $this->_contacts, $this->_upsert);
+        return parent::_KnowtifyData($data, $this->_api, $this->_URL, $this->_contacts, $this->_upsert, $this->_store);
     }
     
     /**
@@ -72,6 +73,6 @@ class Yourname_Knowtify extends CI_Knowtify {
      * @return boolean 
      */
     public function DeleteKnowtifyContacts($data) {      
-        return parent::_KnowtifyData($data, $this->_api, $this->_URL, $this->_contacts, $this->_delete);
+        return parent::_KnowtifyData($data, $this->_api, $this->_URL, $this->_contacts, $this->_delete, $this->_store);
     }
 }
